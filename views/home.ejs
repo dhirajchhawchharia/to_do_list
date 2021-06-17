@@ -22,9 +22,10 @@
                 </div>
                 
                 <div id = 'category'>
-                    <p>CATEGORY</p>
+                    <p class = 'input-label'>CATEGORY</p>
                     <select id = 'category-select' name = 'category'>
-                        <option value = 'Personal' selected>Personal</option>
+                        <option selected="selected" disabled>Choose a category</option>
+                        <option value = 'Personal'>Personal</option>
                         <option value = 'Work'>Work</option>
                         <option value = 'School'>School</option>
                         <option value = 'Cleaning'>Cleaning</option>
@@ -47,18 +48,6 @@
                 <i class="fas fa-trash-alt"></i>
                 DELETE TASKS
             </button>
-
-            <div id = 'display-tasks'>
-                <ul>
-                    <% for(let task of tasks) { %>
-                        <li>
-                            <p><%= task.description %></p>
-                            <p><%= task.due_date %></p>
-                            <p><%= task.category %></p>
-                        </li>
-                    <% } %>
-                </ul>
-            </div>
 
 
         </main>
