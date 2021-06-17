@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>
+            To Do List
+        </title>
+
+        <script src="https://kit.fontawesome.com/e83eb30c38.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="/css/home.css">
+    </head>
+
+    <body>
+        <main id = "container">
+            <header id = "header-title">
+                TODO App
+            </header>
+
+            <form id = 'form-options' action='add-to-list' method='post'>
+                <div id = 'description'>
+                    <p>DESCRIPTION</p>
+                    <input type="text" name="description" placeholder="What do you need to do?" required id = "description-content">
+                </div>
+                
+                <div id = 'category'>
+                    <p>CATEGORY</p>
+                    <select id = 'category-select' name = 'category'>
+                        <option value = 'Personal' selected>Personal</option>
+                        <option value = 'Work'>Work</option>
+                        <option value = 'School'>School</option>
+                        <option value = 'Cleaning'>Cleaning</option>
+                        <option value = 'Other'>Other</option>
+                    </select>
+                </div>
+
+                <div id = "due-date">
+                    <p>DUE DATE</p>
+                    <input type = 'date' id = 'due-date-option' name = 'due_date' required>
+                </div>
+                
+                <button id = 'add-task-button' type = 'submit'>
+                    <i class="fas fa-plus"></i>
+                    ADD TASK
+                </button>
+            </form>
+
+            <button id = 'delete-task-button' type = 'button'>
+                <i class="fas fa-trash-alt"></i>
+                DELETE TASKS
+            </button>
+
+            <div id = 'display-tasks'>
+                <ul>
+                    <% for(let task of tasks) { %>
+                        <li>
+                            <p><%= task.description %></p>
+                            <p><%= task.due_date %></p>
+                            <p><%= task.category %></p>
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
+
+
+        </main>
+
+        <script type="text/javascript" src="/js/home.js"></script>
+    </body>
+</html>
