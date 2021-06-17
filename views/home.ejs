@@ -49,7 +49,23 @@
                 DELETE TASKS
             </button>
 
-
+            <div>
+                <ul>
+                    <% for(let task of tasks) { %>
+                        <li>
+                            <input type = 'checkbox'>
+                            <p><%= task.description %></p>
+                            <p>
+                                <%= task.category %>
+                            </p>
+                            <p>
+                                <i class="fas fa-calendar-day"></i>
+                                <span><%= task.due_date %></span>
+                            </p>
+                        </li>
+                    <% } %>
+                </ul>    
+            </div>
         </main>
 
         <script type="text/javascript" src="/js/home.js"></script>

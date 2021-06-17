@@ -2,8 +2,16 @@ const db = require('../config/mongoose');
 const Task = require('../models/tasks');
 
 module.exports.home = function(req, res){
-    // return res.end('<h1>I Am Working!!</h1>')
-    return res.render('home', {});
+    Task.find({}, function(err, tasks_list){
+        if(err){
+            console.log('Error in fetching contacts');
+            return;
+        }
+
+        return res.render('home',{
+            tasks : tasks_list
+        });
+    });
 }
 
 module.exports.add_to_tasks = function(req, res){
@@ -21,5 +29,7 @@ module.exports.add_to_tasks = function(req, res){
         return res.redirect('back');
     });
 };
+
+
 
 
