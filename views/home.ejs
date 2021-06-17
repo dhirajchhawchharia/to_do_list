@@ -17,13 +17,13 @@
 
             <form id = 'form-options' action='add-to-list' method='post'>
                 <div id = 'description'>
-                    <p>DESCRIPTION</p>
+                    <p class = 'color1'>DESCRIPTION</p>
                     <input type="text" name="description" placeholder="What do you need to do?" required id = "description-content">
                 </div>
                 
                 <div id = 'category'>
-                    <p class = 'input-label'>CATEGORY</p>
-                    <select id = 'category-select' name = 'category'>
+                    <p class = 'input-label color1'>CATEGORY</p>
+                    <select id = 'category-select' name = 'category' class = 'color1'>
                         <option selected="selected" disabled>Choose a category</option>
                         <option value = 'Personal'>Personal</option>
                         <option value = 'Work'>Work</option>
@@ -34,8 +34,8 @@
                 </div>
 
                 <div id = "due-date">
-                    <p>DUE DATE</p>
-                    <input type = 'date' id = 'due-date-option' name = 'due_date' required>
+                    <p class = 'color1'>DUE DATE</p>
+                    <input type = 'date' id = 'due-date-option' name = 'due_date' required class = 'color1'>
                 </div>
                 
                 <button id = 'add-task-button' type = 'submit'>
@@ -55,18 +55,20 @@
                 <ul>
                     <% for(let task of tasks) { %>
                         <li>
-                            <a href = "/select-task/?id=<%= task._id %>">
-                                <!-- <input type = 'checkbox'> -->
-                                Hello
-                            </a>
-                            <p><%= task.description %></p>
-                            <p>
+                            <div class = 'show-description color1'>
+                                <a href = "/select-task/?id=<%= task._id %>">
+                                    <!-- <input type = 'checkbox'> -->
+                                    Click to Select
+                                </a>
+                                <span> &nbsp; <%= task.description %></span>
+                            </div>
+                            <div class = 'show-category'>
                                 <%= task.category %>
-                            </p>
-                            <p>
+                            </div>
+                            <div class = 'show-date color2'>
                                 <i class="fas fa-calendar-day"></i>
                                 <span><%= task.due_date %></span>
-                            </p>
+                            </div>
                         </li>
                     <% } %>
                 </ul>    
