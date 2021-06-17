@@ -30,6 +30,22 @@ module.exports.add_to_tasks = function(req, res){
     });
 };
 
+let ids_delete = [];
 
+module.exports.select_delete = function(req, res){
+    ids_delete.push(req.query.id);
+};
 
+module.exports.delete_tasks = function(req, res){
+    for(let id of ids_delete){
+        Task.findByIdAndDelete(id, function(err){
+            if(err){
+                console.log('Error in deleting the task');
+                return;
+            }
+        });
+    }
+    ids_delete = [];
+    return res.redirect('back');
+}
 

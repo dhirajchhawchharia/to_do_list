@@ -44,16 +44,21 @@
                 </button>
             </form>
 
-            <button id = 'delete-task-button' type = 'button'>
-                <i class="fas fa-trash-alt"></i>
-                DELETE TASKS
-            </button>
+            <a href = '/delete-tasks'>
+                <button id = 'delete-task-button' type = 'button'>
+                    <i class="fas fa-trash-alt"></i>
+                    DELETE TASKS
+                </button>
+            </a>
 
             <div>
                 <ul>
                     <% for(let task of tasks) { %>
                         <li>
-                            <input type = 'checkbox'>
+                            <a href = "/select-task/?id=<%= task._id %>">
+                                <!-- <input type = 'checkbox'> -->
+                                Hello
+                            </a>
                             <p><%= task.description %></p>
                             <p>
                                 <%= task.category %>

@@ -7,5 +7,7 @@ router.use(express.urlencoded({extended : true}));
 
 router.get('/', homeController.home);
 router.post('/add-to-list', homeController.add_to_tasks);
+router.get('/select-task', homeController.select_delete);
+router.get('/delete-tasks', homeController.delete_tasks);
 
 module.exports = router;
